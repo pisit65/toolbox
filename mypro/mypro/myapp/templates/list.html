@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายการวิชา</title>
+</head>
+<body>
+    <h1>รายการวิชาในหลักสูตร</h1>
+    <ul>
+        {% for course in courses %}
+            <li>
+                <strong>{{ course.name }}</strong><br>
+                {{ course.description }}
+            </li>
+        {% empty %}
+            <li>ไม่มีข้อมูลรายวิชาในระบบ</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
