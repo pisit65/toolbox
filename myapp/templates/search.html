@@ -1,0 +1,30 @@
+<!-- myapp/templates/search.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ค้นหารายวิชา</title>
+</head>
+<body>
+    <h1>ค้นหารายวิชา</h1>
+    <form method="GET">
+        <input type="text" name="query" value="{{ query }}" placeholder="ป้อนชื่อวิชา">
+        <button type="submit">ค้นหา</button>
+    </form>
+
+    {% if query %}
+        <h2>ผลการค้นหา:</h2>
+        {% if courses %}
+            <ul>
+                {% for course in courses %}
+                    <li>{{ course.code }} - {{ course.name }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>ไม่พบรายวิชา</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
